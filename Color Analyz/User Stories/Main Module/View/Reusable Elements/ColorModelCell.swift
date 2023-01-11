@@ -17,6 +17,7 @@ final class ColorModelCell: UICollectionViewCell {
         greenColorLabel.text = "g: \(color.green)"
         blueColorLabel.text = "b: \(color.blue)"
         opacityLabel.text = "a: \(color.alpha)"
+        print("CONFIG CELL HERE")
     }
     
     // MARK: - Local Constants
@@ -81,6 +82,8 @@ final class ColorModelCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layout()
+        print("CELL INIT HERE")
+
     }
     
     required init?(coder: NSCoder) {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MainViewController: UIViewController {
     
@@ -26,6 +27,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.layer.addSublayer(presenter.previewLayer)
+        presenter.output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
+        colorModelCollectionView.delegate = self
+        colorModelCollectionView.dataSource = self
         layoutSetup()
     }
     
@@ -33,17 +37,40 @@ class MainViewController: UIViewController {
         super.viewDidLayoutSubviews()
         presenter.previewLayer.frame = cameraView.bounds
     }
-    
-    
 }
 
-// MARK: - Presenter Output
+// MARK: - Presenter Output & AV Delegate
 
-extension MainViewController: MainViewPresenterOutput {
+extension MainViewController: MainViewPresenterOutput, AVCaptureVideoDataOutputSampleBufferDelegate {
+    func updateValues() {
+        self.colorModelCollectionView.reloadData()
+    }
+    
     func accessToCameraDenied() {
         showAlert(alertText: "Access Denied", alertMessage: "Check the settings, please") {
             #warning("Сделать диплинк в настройки")
         }
+    }
+    
+    func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+        presenter.analyzeColors(from: sampleBuffer)
+    }
+}
+
+
+// MARK: - CollectionView Delegate
+
+extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presenter.colorModel.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableId, for: indexPath) as? ColorModelCell else {
+            return UICollectionViewCell()
+        }
+        cell.configureCell(with: presenter.colorModel[indexPath.row])
+        return cell
     }
 }
 
@@ -87,22 +114,6 @@ extension MainViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         return layout
-    }
-}
-
-// MARK: - CollectionView Delegate
-
-extension MainViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        presenter.colorModel.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableId, for: indexPath) as? ColorModelCell else {
-            return UICollectionViewCell()
-        }
-        cell.configureCell(with: presenter.colorModel[indexPath.row])
-        return cell
     }
 }
 

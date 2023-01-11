@@ -5,14 +5,16 @@
 //  Created by Fed on 11.01.2023.
 //
 
-import Foundation
+import UIKit
 import AVFoundation
 
 protocol MainViewPresenterOutput: AnyObject {
     func accessToCameraDenied()
+    func updateValues()
 }
 
 protocol MainViewPresenterInput: AnyObject {
+    func analyzeColors(from image: CMSampleBuffer)
     var session: AVCaptureSession { get set }
     var output: AVCaptureVideoDataOutput { get set }
     var previewLayer: AVCaptureVideoPreviewLayer { get set }
@@ -39,6 +41,23 @@ final class MainPresenter: MainViewPresenterInput {
         self.previewLayer = previewLayer
         checkCameraPremissions()
     }
+    
+    func analyzeColors(from image: CMSampleBuffer) {
+        guard let imageBuffer = CMSampleBufferGetImageBuffer(image) else {
+            return
+        }
+        let ciImage = CIImage(cvPixelBuffer: imageBuffer)
+        let image = analyzeService.convertToUIImage(from: ciImage)
+        let colors = analyzeService.findColors(image)
+        colorModel = analyzeService.findPopularColors(with: colors, on: image)
+        print(colorModel)
+        DispatchQueue.main.async {
+            print("updating?")
+            self.view?.updateValues()
+        }
+    }
+    
+    // MARK: - Private Methods
     
     private func checkCameraPremissions() {
         switch AVCaptureDevice.authorizationStatus(for: .video) {
@@ -67,7 +86,6 @@ final class MainPresenter: MainViewPresenterInput {
     }
     
     private func setupCamera() {
-        let session = AVCaptureSession()
         if let device = AVCaptureDevice.default(for: .video) {
             do {
                 let input = try AVCaptureDeviceInput(device: device)
@@ -83,9 +101,8 @@ final class MainPresenter: MainViewPresenterInput {
                 previewLayer.videoGravity = .resizeAspectFill
                 previewLayer.session = session
                 
-                DispatchQueue.global(qos: .background).async {
-                    session.startRunning()
-                    self.session = session
+                DispatchQueue.global(qos: .userInteractive).async {
+                    self.session.startRunning()
                 }
             } catch {
                 print(error.localizedDescription)
