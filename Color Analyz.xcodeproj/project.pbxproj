@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		894E2D8D296EED72004E08A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2D8C296EED72004E08A2 /* AppDelegate.swift */; };
 		894E2D8F296EED72004E08A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2D8E296EED72004E08A2 /* SceneDelegate.swift */; };
-		894E2D91296EED72004E08A2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2D90296EED72004E08A2 /* ViewController.swift */; };
-		894E2D94296EED72004E08A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894E2D92296EED72004E08A2 /* Main.storyboard */; };
+		894E2D91296EED72004E08A2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2D90296EED72004E08A2 /* MainViewController.swift */; };
 		894E2D96296EED74004E08A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 894E2D95296EED74004E08A2 /* Assets.xcassets */; };
 		894E2D99296EED74004E08A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 894E2D97296EED74004E08A2 /* LaunchScreen.storyboard */; };
+		894E2DAA296EF38B004E08A2 /* Assembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DA9296EF38B004E08A2 /* Assembly.swift */; };
+		894E2DAC296EF456004E08A2 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DAB296EF456004E08A2 /* MainPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		894E2D89296EED72004E08A2 /* Color Analyz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Analyz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		894E2D8C296EED72004E08A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		894E2D8E296EED72004E08A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		894E2D90296EED72004E08A2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		894E2D93296EED72004E08A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		894E2D90296EED72004E08A2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		894E2D95296EED74004E08A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		894E2D98296EED74004E08A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		894E2D9A296EED74004E08A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		894E2DA9296EF38B004E08A2 /* Assembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assembly.swift; sourceTree = "<group>"; };
+		894E2DAB296EF456004E08A2 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,88 @@
 		894E2D8B296EED72004E08A2 /* Color Analyz */ = {
 			isa = PBXGroup;
 			children = (
+				894E2DA0296EF2B4004E08A2 /* App */,
+				894E2DA3296EF30B004E08A2 /* Extensions */,
+				894E2DA8296EF381004E08A2 /* Service */,
+				894E2DA1296EF2E2004E08A2 /* User Stories */,
+				894E2DA2296EF2F4004E08A2 /* Resources */,
+			);
+			path = "Color Analyz";
+			sourceTree = "<group>";
+		};
+		894E2DA0296EF2B4004E08A2 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				894E2D8C296EED72004E08A2 /* AppDelegate.swift */,
 				894E2D8E296EED72004E08A2 /* SceneDelegate.swift */,
-				894E2D90296EED72004E08A2 /* ViewController.swift */,
-				894E2D92296EED72004E08A2 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		894E2DA1296EF2E2004E08A2 /* User Stories */ = {
+			isa = PBXGroup;
+			children = (
+				894E2DA4296EF323004E08A2 /* Main Module */,
+			);
+			path = "User Stories";
+			sourceTree = "<group>";
+		};
+		894E2DA2296EF2F4004E08A2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				894E2D95296EED74004E08A2 /* Assets.xcassets */,
 				894E2D97296EED74004E08A2 /* LaunchScreen.storyboard */,
 				894E2D9A296EED74004E08A2 /* Info.plist */,
 			);
-			path = "Color Analyz";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		894E2DA3296EF30B004E08A2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		894E2DA4296EF323004E08A2 /* Main Module */ = {
+			isa = PBXGroup;
+			children = (
+				894E2DA6296EF335004E08A2 /* Model */,
+				894E2DA5296EF32F004E08A2 /* View */,
+				894E2DA7296EF343004E08A2 /* Present */,
+			);
+			path = "Main Module";
+			sourceTree = "<group>";
+		};
+		894E2DA5296EF32F004E08A2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				894E2D90296EED72004E08A2 /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		894E2DA6296EF335004E08A2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		894E2DA7296EF343004E08A2 /* Present */ = {
+			isa = PBXGroup;
+			children = (
+				894E2DAB296EF456004E08A2 /* MainPresenter.swift */,
+			);
+			path = Present;
+			sourceTree = "<group>";
+		};
+		894E2DA8296EF381004E08A2 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				894E2DA9296EF38B004E08A2 /* Assembly.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +202,6 @@
 			files = (
 				894E2D99296EED74004E08A2 /* LaunchScreen.storyboard in Resources */,
 				894E2D96296EED74004E08A2 /* Assets.xcassets in Resources */,
-				894E2D94296EED72004E08A2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +212,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				894E2D91296EED72004E08A2 /* ViewController.swift in Sources */,
+				894E2DAC296EF456004E08A2 /* MainPresenter.swift in Sources */,
+				894E2D91296EED72004E08A2 /* MainViewController.swift in Sources */,
+				894E2DAA296EF38B004E08A2 /* Assembly.swift in Sources */,
 				894E2D8D296EED72004E08A2 /* AppDelegate.swift in Sources */,
 				894E2D8F296EED72004E08A2 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +223,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		894E2D92296EED72004E08A2 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				894E2D93296EED72004E08A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		894E2D97296EED74004E08A2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +338,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,12 +357,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3G8VQ3U9D3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Color Analyz/Info.plist";
+				INFOPLIST_FILE = "Color Analyz/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +371,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.teodor.Color-Analyz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -317,12 +389,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3G8VQ3U9D3;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "Color Analyz/Info.plist";
+				INFOPLIST_FILE = "Color Analyz/Resources/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +403,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.teodor.Color-Analyz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
