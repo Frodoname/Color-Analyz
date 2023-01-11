@@ -18,6 +18,9 @@
 		894E2DB0296EF57E004E08A2 /* Array + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DAF296EF57E004E08A2 /* Array + Extension.swift */; };
 		894E2DB2296EF590004E08A2 /* Sequence + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DB1296EF590004E08A2 /* Sequence + Extension.swift */; };
 		894E2DB4296EF626004E08A2 /* ColorModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DB3296EF626004E08A2 /* ColorModelCell.swift */; };
+		894E2DB7296F0096004E08A2 /* AnalyzeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DB6296F0096004E08A2 /* AnalyzeService.swift */; };
+		894E2DBA296F0396004E08A2 /* ColorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DB9296F0396004E08A2 /* ColorModel.swift */; };
+		894E2DBC296F12F3004E08A2 /* UIViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 894E2DBB296F12F3004E08A2 /* UIViewController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		894E2DAF296EF57E004E08A2 /* Array + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array + Extension.swift"; sourceTree = "<group>"; };
 		894E2DB1296EF590004E08A2 /* Sequence + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence + Extension.swift"; sourceTree = "<group>"; };
 		894E2DB3296EF626004E08A2 /* ColorModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModelCell.swift; sourceTree = "<group>"; };
+		894E2DB6296F0096004E08A2 /* AnalyzeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeService.swift; sourceTree = "<group>"; };
+		894E2DB9296F0396004E08A2 /* ColorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorModel.swift; sourceTree = "<group>"; };
+		894E2DBB296F12F3004E08A2 /* UIViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,7 @@
 				894E2DAD296EF566004E08A2 /* UIView + Extension.swift */,
 				894E2DAF296EF57E004E08A2 /* Array + Extension.swift */,
 				894E2DB1296EF590004E08A2 /* Sequence + Extension.swift */,
+				894E2DBB296F12F3004E08A2 /* UIViewController + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -134,6 +141,7 @@
 		894E2DA6296EF335004E08A2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				894E2DB9296F0396004E08A2 /* ColorModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				894E2DA9296EF38B004E08A2 /* Assembly.swift */,
+				894E2DB8296F009C004E08A2 /* AnalyzeService */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -160,6 +169,14 @@
 				894E2DB3296EF626004E08A2 /* ColorModelCell.swift */,
 			);
 			path = "Reusable Elements";
+			sourceTree = "<group>";
+		};
+		894E2DB8296F009C004E08A2 /* AnalyzeService */ = {
+			isa = PBXGroup;
+			children = (
+				894E2DB6296F0096004E08A2 /* AnalyzeService.swift */,
+			);
+			path = AnalyzeService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,12 +251,15 @@
 			files = (
 				894E2DAC296EF456004E08A2 /* MainPresenter.swift in Sources */,
 				894E2D91296EED72004E08A2 /* MainViewController.swift in Sources */,
+				894E2DB7296F0096004E08A2 /* AnalyzeService.swift in Sources */,
 				894E2DAE296EF566004E08A2 /* UIView + Extension.swift in Sources */,
 				894E2DB0296EF57E004E08A2 /* Array + Extension.swift in Sources */,
 				894E2DAA296EF38B004E08A2 /* Assembly.swift in Sources */,
 				894E2D8D296EED72004E08A2 /* AppDelegate.swift in Sources */,
 				894E2DB2296EF590004E08A2 /* Sequence + Extension.swift in Sources */,
 				894E2D8F296EED72004E08A2 /* SceneDelegate.swift in Sources */,
+				894E2DBA296F0396004E08A2 /* ColorModel.swift in Sources */,
+				894E2DBC296F12F3004E08A2 /* UIViewController + Extension.swift in Sources */,
 				894E2DB4296EF626004E08A2 /* ColorModelCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

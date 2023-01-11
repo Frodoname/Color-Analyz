@@ -9,6 +9,16 @@ import UIKit
 
 final class ColorModelCell: UICollectionViewCell {
     
+    // MARK: - Public Methods
+    
+    func configureCell(with color: ColorModel) {
+        precentLabel.text = String(color.precentArea)
+        redColorLabel.text = "r: \(color.red)"
+        greenColorLabel.text = "g: \(color.green)"
+        blueColorLabel.text = "b: \(color.blue)"
+        opacityLabel.text = "a: \(color.alpha)"
+    }
+    
     // MARK: - Local Constants
     
     private let precentLabelFontSize: CGFloat = 17
