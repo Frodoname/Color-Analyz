@@ -21,6 +21,7 @@ final class ColorModelCell: UICollectionViewCell {
     
     // MARK: - Local Constants
     
+    private let padding: CGFloat = 5
     private let precentLabelFontSize: CGFloat = 17
     private let colorLabelFontSize: CGFloat = 11
     
@@ -67,9 +68,9 @@ final class ColorModelCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var hStack: UIStackView = {
+    private lazy var vStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [redColorLabel, greenColorLabel, blueColorLabel, opacityLabel])
-        stackView.axis = .horizontal
+        stackView.axis = .vertical
         stackView.distribution = .fillEqually
         stackView.spacing = 0
         return stackView
@@ -81,7 +82,7 @@ final class ColorModelCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layout()
-
+        viewSetup()
     }
     
     required init?(coder: NSCoder) {
@@ -90,8 +91,13 @@ final class ColorModelCell: UICollectionViewCell {
     
     // MARK: - Layout setup
     
+    private func viewSetup() {
+        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = UIColor.white.cgColor
+    }
+    
     private func layout() {
-        [precentLabel, hStack].forEach {
+        [precentLabel, vStack].forEach {
             contentView.addSubview($0)
             $0.prepareForAutoLayOut()
         }
@@ -101,10 +107,10 @@ final class ColorModelCell: UICollectionViewCell {
             precentLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             precentLabel.topAnchor.constraint(equalTo: topAnchor),
             
-            hStack.leadingAnchor.constraint(equalTo: leadingAnchor),
-            hStack.trailingAnchor.constraint(equalTo: trailingAnchor),
-            hStack.topAnchor.constraint(equalTo: precentLabel.bottomAnchor),
-            hStack.bottomAnchor.constraint(equalTo: bottomAnchor)
+            vStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: padding),
+            vStack.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -padding),
+            vStack.topAnchor.constraint(equalTo: precentLabel.bottomAnchor),
+            vStack.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
 }

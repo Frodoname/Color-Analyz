@@ -21,6 +21,8 @@ final class AnalyzeService: AnalyzeServiceProtocol {
         return image
     }
     
+    // The method i found on the internet: it's analyzing each of pixel on the photo and it returns an array of tuples of Int and UIColor(Int is the number of equal pixels on the photo).
+    
     func findColors(_ image: UIImage) -> Array<(UIColor, Int)> {
         let pixelsWide = Int(image.size.width)
         let pixelsHigh = Int(image.size.height)

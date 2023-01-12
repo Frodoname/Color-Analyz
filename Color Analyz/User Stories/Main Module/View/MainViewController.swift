@@ -89,7 +89,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: view.frame.width * 0.4, height: view.frame.height * 0.1)
+        CGSize(width: view.frame.width * 0.17, height: view.frame.height * 0.1)
     }
 }
 
@@ -126,9 +126,6 @@ extension MainViewController {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .black
-        collectionView.layer.borderColor = UIColor.white.cgColor
-        collectionView.layer.borderWidth = 1
-        collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ColorModelCell.self, forCellWithReuseIdentifier: reusableId)
         return collectionView
