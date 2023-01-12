@@ -9,15 +9,16 @@ import UIKit
 import AVFoundation
 
 protocol MainViewPresenterOutput: AnyObject {
+    func unexpectedError(description: String)
     func accessToCameraDenied()
     func updateValues()
 }
 
 protocol MainViewPresenterInput: AnyObject {
     func analyzeColors(from image: CMSampleBuffer)
-    var session: AVCaptureSession { get set }
-    var output: AVCaptureVideoDataOutput { get set }
-    var previewLayer: AVCaptureVideoPreviewLayer { get set }
+    var session: AVCaptureSession { get }
+    var output: AVCaptureVideoDataOutput { get }
+    var previewLayer: AVCaptureVideoPreviewLayer { get }
     var colorModel: [ColorModel] { get set }
     init(view: MainViewPresenterOutput, analyzeService: AnalyzeServiceProtocol, session: AVCaptureSession,
          output: AVCaptureVideoDataOutput, previewLayer: AVCaptureVideoPreviewLayer)
@@ -62,6 +63,7 @@ final class MainPresenter: MainViewPresenterInput {
         case .notDetermined:
             AVCaptureDevice.requestAccess(for: .video) { [weak self] granted in
                 guard granted else {
+                    self?.view?.accessToCameraDenied()
                     return
                 }
                 
@@ -105,7 +107,7 @@ final class MainPresenter: MainViewPresenterInput {
                     self.session.startRunning()
                 }
             } catch {
-                print(error.localizedDescription)
+                view?.unexpectedError(description: error.localizedDescription)
             }
         }
     }

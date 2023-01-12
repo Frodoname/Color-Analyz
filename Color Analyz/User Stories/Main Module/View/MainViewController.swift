@@ -19,7 +19,6 @@ class MainViewController: UIViewController {
     // MARK: - UI Elements
     
     private lazy var cameraView: UIView = createCameraView()
-    
     private lazy var colorModelCollectionView: UICollectionView = createCollectionView()
     
     // MARK: - ViewDidLoad & ViewDidLayoutSubViews
@@ -48,13 +47,24 @@ class MainViewController: UIViewController {
 // MARK: - Presenter Output & AV Delegate
 
 extension MainViewController: MainViewPresenterOutput, AVCaptureVideoDataOutputSampleBufferDelegate {
+    func unexpectedError(description :String) {
+        showAlert(alertText: "An unexpected error has occurred", alertMessage: description, buttonTitle: "Sadly", buttonStyle: .default) {
+            
+        }
+    }
+    
     func updateValues() {
         self.colorModelCollectionView.reloadData()
     }
     
     func accessToCameraDenied() {
-        showAlert(alertText: "Access Denied", alertMessage: "Check the settings, please") {
-            #warning("Сделать диплинк в настройки")
+        DispatchQueue.main.async {
+            self.showAlert(alertText: "Access Denied", alertMessage: "Please allow access to your camera", buttonTitle: "Go To Settings", buttonStyle: .default) {
+                guard let url = URL(string: UIApplication.openSettingsURLString) else {
+                    return
+                }
+                UIApplication.shared.open(url)
+            }
         }
     }
     

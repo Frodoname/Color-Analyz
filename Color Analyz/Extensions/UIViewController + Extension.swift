@@ -8,9 +8,9 @@
 import UIKit
 
 extension UIViewController {
-    func showAlert(alertText : String, alertMessage : String, completion: @escaping () -> Void) {
+    func showAlert(alertText : String, alertMessage : String, buttonTitle: String, buttonStyle: UIAlertAction.Style, completion: @escaping () -> Void) {
         let alert = UIAlertController(title: alertText, message: alertMessage, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Clear", style: .destructive, handler: { _ in
+        alert.addAction(UIAlertAction(title: buttonTitle, style: buttonStyle, handler: { _ in
             completion()
             
         }))

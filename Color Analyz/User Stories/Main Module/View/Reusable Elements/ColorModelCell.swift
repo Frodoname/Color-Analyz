@@ -107,5 +107,4 @@ final class ColorModelCell: UICollectionViewCell {
             hStack.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
 }
