@@ -23,7 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		894E2D89296EED72004E08A2 /* Color Analyz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Analyz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		894E2D89296EED72004E08A2 /* Color Analyze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Color Analyze.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		894E2D8C296EED72004E08A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		894E2D8E296EED72004E08A2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		894E2D90296EED72004E08A2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -62,7 +62,7 @@
 		894E2D8A296EED72004E08A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				894E2D89296EED72004E08A2 /* Color Analyz.app */,
+				894E2D89296EED72004E08A2 /* Color Analyze.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -179,9 +179,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		894E2D88296EED72004E08A2 /* Color Analyz */ = {
+		894E2D88296EED72004E08A2 /* Color Analyze */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 894E2D9D296EED74004E08A2 /* Build configuration list for PBXNativeTarget "Color Analyz" */;
+			buildConfigurationList = 894E2D9D296EED74004E08A2 /* Build configuration list for PBXNativeTarget "Color Analyze" */;
 			buildPhases = (
 				894E2D85296EED72004E08A2 /* Sources */,
 				894E2D86296EED72004E08A2 /* Frameworks */,
@@ -191,9 +191,9 @@
 			);
 			dependencies = (
 			);
-			name = "Color Analyz";
+			name = "Color Analyze";
 			productName = "Color Analyz";
-			productReference = 894E2D89296EED72004E08A2 /* Color Analyz.app */;
+			productReference = 894E2D89296EED72004E08A2 /* Color Analyze.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -211,7 +211,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 894E2D84296EED72004E08A2 /* Build configuration list for PBXProject "Color Analyz" */;
+			buildConfigurationList = 894E2D84296EED72004E08A2 /* Build configuration list for PBXProject "Color Analyze" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -224,7 +224,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				894E2D88296EED72004E08A2 /* Color Analyz */,
+				894E2D88296EED72004E08A2 /* Color Analyze */,
 			);
 		};
 /* End PBXProject section */
@@ -455,7 +455,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		894E2D84296EED72004E08A2 /* Build configuration list for PBXProject "Color Analyz" */ = {
+		894E2D84296EED72004E08A2 /* Build configuration list for PBXProject "Color Analyze" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				894E2D9B296EED74004E08A2 /* Debug */,
@@ -464,7 +464,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		894E2D9D296EED74004E08A2 /* Build configuration list for PBXNativeTarget "Color Analyz" */ = {
+		894E2D9D296EED74004E08A2 /* Build configuration list for PBXNativeTarget "Color Analyze" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				894E2D9E296EED74004E08A2 /* Debug */,
