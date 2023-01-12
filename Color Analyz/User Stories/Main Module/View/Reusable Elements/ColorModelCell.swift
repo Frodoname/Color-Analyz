@@ -12,12 +12,11 @@ final class ColorModelCell: UICollectionViewCell {
     // MARK: - Public Methods
     
     func configureCell(with color: ColorModel) {
-        precentLabel.text = String(color.precentArea)
+        precentLabel.text = "\(color.precentArea) %"
         redColorLabel.text = "r: \(color.red)"
         greenColorLabel.text = "g: \(color.green)"
         blueColorLabel.text = "b: \(color.blue)"
         opacityLabel.text = "a: \(color.alpha)"
-        print("CONFIG CELL HERE")
     }
     
     // MARK: - Local Constants
@@ -82,7 +81,6 @@ final class ColorModelCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         layout()
-        print("CELL INIT HERE")
 
     }
     
@@ -94,7 +92,7 @@ final class ColorModelCell: UICollectionViewCell {
     
     private func layout() {
         [precentLabel, hStack].forEach {
-            addSubview($0)
+            contentView.addSubview($0)
             $0.prepareForAutoLayOut()
         }
         

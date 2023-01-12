@@ -50,9 +50,7 @@ final class MainPresenter: MainViewPresenterInput {
         let image = analyzeService.convertToUIImage(from: ciImage)
         let colors = analyzeService.findColors(image)
         colorModel = analyzeService.findPopularColors(with: colors, on: image)
-        print(colorModel)
         DispatchQueue.main.async {
-            print("updating?")
             self.view?.updateValues()
         }
     }
@@ -78,7 +76,9 @@ final class MainPresenter: MainViewPresenterInput {
             view?.accessToCameraDenied()
             break
         case .authorized:
-            setupCamera()
+            DispatchQueue.main.async {
+                self.setupCamera()
+            }
         @unknown default:
             view?.accessToCameraDenied()
             break

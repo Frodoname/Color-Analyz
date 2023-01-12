@@ -15,7 +15,8 @@ struct ColorModel {
     let numberOfPixels: Int
     let totalNumberOfPixels: Float
     
-    var precentArea: Float {
-        return Float(numberOfPixels) / totalNumberOfPixels * 100
+    var precentArea: String {
+        let digit = Float(numberOfPixels) / totalNumberOfPixels * 100
+        return String(format: "%.2f", digit)
     }
 }

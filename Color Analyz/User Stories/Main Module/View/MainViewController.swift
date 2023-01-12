@@ -26,16 +26,22 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.layer.addSublayer(presenter.previewLayer)
-        presenter.output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInteractive))
-        colorModelCollectionView.delegate = self
-        colorModelCollectionView.dataSource = self
+        viewDidLoadSetup()
         layoutSetup()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         presenter.previewLayer.frame = cameraView.bounds
+    }
+    
+    // MARK: - Private Methods
+    
+    private func viewDidLoadSetup() {
+        view.layer.addSublayer(presenter.previewLayer)
+        presenter.output.setSampleBufferDelegate(self, queue: DispatchQueue.global(qos: .userInitiated))
+        colorModelCollectionView.delegate = self
+        colorModelCollectionView.dataSource = self
     }
 }
 
@@ -57,7 +63,6 @@ extension MainViewController: MainViewPresenterOutput, AVCaptureVideoDataOutputS
     }
 }
 
-
 // MARK: - CollectionView Delegate
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -71,6 +76,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDelegate
         }
         cell.configureCell(with: presenter.colorModel[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width: view.frame.width * 0.4, height: view.frame.height * 0.1)
     }
 }
 
@@ -92,7 +101,9 @@ extension MainViewController {
             
             colorModelCollectionView.topAnchor.constraint(equalTo: cameraView.bottomAnchor),
             colorModelCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            colorModelCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            colorModelCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            colorModelCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+
         ])
     }
     
@@ -104,7 +115,10 @@ extension MainViewController {
     func createCollectionView() -> UICollectionView {
         let layout = createLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.isScrollEnabled = false
+        collectionView.backgroundColor = .black
+        collectionView.layer.borderColor = UIColor.white.cgColor
+        collectionView.layer.borderWidth = 1
+        collectionView.isScrollEnabled = true
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.register(ColorModelCell.self, forCellWithReuseIdentifier: reusableId)
         return collectionView
